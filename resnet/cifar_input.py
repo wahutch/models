@@ -112,5 +112,6 @@ def build_input(dataset, data_path, batch_size, mode):
   assert labels.get_shape()[1] == num_classes
 
   # Display the training images in the visualizer.
-  tf.image_summary('images', images)
+#  tf.image_summary('images', images)
+  tf.summary.image('images', images)
   return images, labels
