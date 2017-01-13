@@ -53,15 +53,15 @@ def train(hps):
   model = resnet_model.ResNet(hps, images, labels, FLAGS.mode)
   model.build_graph()
 
-  param_stats = tf.contrib.tfprof.model_analyzer.print_model_analysis(
-      tf.get_default_graph(),
-      tfprof_options=tf.contrib.tfprof.model_analyzer.
-          TRAINABLE_VARS_PARAMS_STAT_OPTIONS)
-  sys.stdout.write('total_params: %d\n' % param_stats.total_parameters)
-
-  tf.contrib.tfprof.model_analyzer.print_model_analysis(
-      tf.get_default_graph(),
-      tfprof_options=tf.contrib.tfprof.model_analyzer.FLOAT_OPS_OPTIONS)
+#  param_stats = tf.contrib.tfprof.model_analyzer.print_model_analysis(
+#      tf.get_default_graph(),
+#      tfprof_options=tf.contrib.tfprof.model_analyzer.
+#          TRAINABLE_VARS_PARAMS_STAT_OPTIONS)
+#  sys.stdout.write('total_params: %d\n' % param_stats.total_parameters)
+#
+#  tf.contrib.tfprof.model_analyzer.print_model_analysis(
+#      tf.get_default_graph(),
+#      tfprof_options=tf.contrib.tfprof.model_analyzer.FLOAT_OPS_OPTIONS)
 
   truth = tf.argmax(model.labels, axis=1)
   predictions = tf.argmax(model.predictions, axis=1)
